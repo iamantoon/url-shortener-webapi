@@ -1,5 +1,7 @@
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
+using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -17,21 +19,52 @@ namespace API.Data
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<LinkDto>> GetLinksAsync()
+        public async Task<PagedList<LinkDto>> GetLinksAsync(LinkParams linkParams)
         {
-            return await _context.Links
-                .Where(l => l.Active)
-                .ProjectTo<LinkDto>(_mapper.ConfigurationProvider)
-                .ToListAsync();
+            var query = _context.Links.AsQueryable();
+
+            var maxExpiryDate = DateTime.Now.AddHours(linkParams.MaxExpiryDate);
+
+            query = query.Where(l => l.ExpiryDate <= maxExpiryDate); 
+            query = query.Where(l => l.Active != false);
+
+            query = linkParams.OrderBy switch
+            {
+                "oldest" => query.OrderBy(link => link.Created),
+                "popular" => query.OrderByDescending(link => link.UsageCount),
+                _ => query.OrderByDescending(link => link.Created)
+            };
+            
+            return await PagedList<LinkDto>.CreateAsync(
+                query.AsNoTracking().ProjectTo<LinkDto>(_mapper.ConfigurationProvider), 
+                linkParams.PageNumber, 
+                linkParams.PageSize
+            );    
         }
 
-        public async Task<IEnumerable<LinkDto>> GetPersonalLinksAsync(string email)
+        public async Task<PagedList<LinkDto>> GetPersonalLinksAsync(LinkParams linkParams, string email)
         {
-            return await _context.Links
-                .Where(u => u.AppUser.Email == email)
-                .Where(l => l.Active)
-                .ProjectTo<LinkDto>(_mapper.ConfigurationProvider)
-                .ToListAsync();
+            var query = _context.Links.AsQueryable();
+
+            var maxExpiryDate = DateTime.Now.AddHours(linkParams.MaxExpiryDate);
+            
+            query = query.Where(u => u.AppUser.Email == email);
+            if (!linkParams.All) query = query.Where(l => l.Active != false);
+            query = query.Where(l => l.ExpiryDate <= maxExpiryDate);
+
+            query = linkParams.OrderBy switch
+            {
+                "oldest" => query.OrderBy(link => link.Created),
+                "popular" => query.OrderByDescending(link => link.UsageCount),
+                _ => query.OrderByDescending(link => link.Created)
+            };
+
+            return await PagedList<LinkDto>.CreateAsync(
+                query.ProjectTo<LinkDto>(_mapper.ConfigurationProvider).AsNoTracking(),
+                linkParams.PageNumber, 
+                linkParams.PageSize
+            );
+                
         }
 
         public async Task<bool> CreateLink(AppLink link)

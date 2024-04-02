@@ -1,5 +1,7 @@
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
+using API.Helpers;
 
 namespace API.Interfaces
 {
@@ -7,8 +9,8 @@ namespace API.Interfaces
     {
         void Update(AppLink link);
         Task<bool> SaveAllAsync();
-        Task<IEnumerable<LinkDto>> GetLinksAsync();
-        Task<IEnumerable<LinkDto>> GetPersonalLinksAsync(string email);
+        Task<PagedList<LinkDto>> GetLinksAsync(LinkParams linkParams);
+        Task<PagedList<LinkDto>> GetPersonalLinksAsync(LinkParams linkParams, string email);
         Task<bool> CreateLink(AppLink link);
         Task<LinkDto> GetLinkByShortCodeAsync(string shortLink);
         Task IncrementUsageCount(string shortLink);

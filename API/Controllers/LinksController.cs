@@ -3,6 +3,8 @@ using System.Security.Cryptography;
 using System.Text;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
+using API.Helpers;
 using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,25 +24,30 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LinkDto>>> GetLinksAsync()
+        public async Task<ActionResult<PagedList<LinkDto>>> GetLinks([FromQuery]LinkParams linkParams)
         {
             await _linkRepository.DeactivateExpiredLinks();
 
-            return Ok(await _linkRepository.GetLinksAsync());
+            var links = await _linkRepository.GetLinksAsync(linkParams);
+
+            Response.AddPaginationHeader(new PaginationHeader(links.CurrentPage, links.PageSize, links.TotalCount, links.TotalPages));
+
+            return Ok(links);
         }
 
-        [Authorize]
         [HttpGet("my")]
-        public async Task<ActionResult<IEnumerable<LinkDto>>> GetPersonalLinksAsync()
+        public async Task<ActionResult<PagedList<LinkDto>>> GetMyLinks([FromQuery]LinkParams linkParams)
         {
             var currentUserEmail = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
+    
             if (currentUserEmail == null)
             {
                 return BadRequest("Unable to retrieve current user.");
             }
 
-            var links = await _linkRepository.GetPersonalLinksAsync(currentUserEmail);
+            var links = await _linkRepository.GetPersonalLinksAsync(linkParams, currentUserEmail);
+
+            Response.AddPaginationHeader(new PaginationHeader(links.CurrentPage, links.PageSize, links.TotalCount, links.TotalPages));
 
             return Ok(links);
         }
