@@ -12,5 +12,6 @@ namespace API.Interfaces
         Task<bool> CreateLink(AppLink link);
         Task<LinkDto> GetLinkByShortCodeAsync(string shortLink);
         Task IncrementUsageCount(string shortLink);
+        Task DeactivateExpiredLinks();
     }
 }

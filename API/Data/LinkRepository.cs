@@ -19,13 +19,17 @@ namespace API.Data
 
         public async Task<IEnumerable<LinkDto>> GetLinksAsync()
         {
-            return await _context.Links.ProjectTo<LinkDto>(_mapper.ConfigurationProvider).ToListAsync();
+            return await _context.Links
+                .Where(l => l.Active)
+                .ProjectTo<LinkDto>(_mapper.ConfigurationProvider)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<LinkDto>> GetPersonalLinksAsync(string email)
         {
             return await _context.Links
                 .Where(u => u.AppUser.Email == email)
+                .Where(l => l.Active)
                 .ProjectTo<LinkDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
@@ -48,6 +52,18 @@ namespace API.Data
         {
             var link = await _context.Links.FirstOrDefaultAsync(l => l.ShortLink == shortLink);
             link.UsageCount++;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeactivateExpiredLinks()
+        {
+            var expiredLinks = await _context.Links.Where(link => link.ExpiryDate < DateTime.UtcNow).ToListAsync();
+
+            foreach (var link in expiredLinks)
+            {
+                link.Active = false;
+            }
+
             await _context.SaveChangesAsync();
         }
 

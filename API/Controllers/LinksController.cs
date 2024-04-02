@@ -24,6 +24,8 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<LinkDto>>> GetLinksAsync()
         {
+            await _linkRepository.DeactivateExpiredLinks();
+
             return Ok(await _linkRepository.GetLinksAsync());
         }
 

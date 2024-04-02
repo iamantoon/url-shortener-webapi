@@ -17,6 +17,7 @@ namespace API.Extensions
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<ILinkRepository, LinkRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IStatisticsRepository, StatisticsRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             return services;
