@@ -1,0 +1,24 @@
+<nav class="nav">
+    <div class="container">
+        <nav class="nav-bar">
+            <div class="link-container">
+                <h3><a class="logo" routerLink="/">Shortly</a></h3>
+                <ul class="links">
+                    <li class="link-item" routerLink="/all">All links</li>
+                    <li class="link-item" routerLink="/my">My links</li>
+                    <li class="link-item" routerLink="/statistics">Statistics</li>
+                </ul>
+            </div>
+            <div class="button-container" *ngIf="!(accountService.currentUser$ | async)">
+                <p class="link-item" routerLink="/login">Sign in</p>
+                <button class="button" routerLink="/register">Get started</button>
+            </div>
+            <div class="button-container" *ngIf="(accountService.currentUser$ | async) as user">
+                <p (click)="isDropdownVisible = !isDropdownVisible" class="link-item dropdown">{{user.email}}</p>
+                <div class="dropdown-menu" *ngIf="isDropdownVisible">
+                    <p (click)="logout()" class="dropdown-item">Log out</p>
+                </div>
+            </div>
+        </nav>
+    </div>
+</nav>

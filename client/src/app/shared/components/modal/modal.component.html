@@ -1,0 +1,32 @@
+<div class="modal {{ size }}">
+    <div class="modal-header">
+        {{ title }}
+        <span class="modal-close" (click)="close()">✕</span>
+    </div>
+    <div class="modal-content">
+        <form [formGroup]="createLinkForm" autocomplete="off">
+            <label for="input">Full link</label>
+            <input formControlName="link" class="input" placeholder="Enter link">
+            <div class="dropdown">
+                <div class="dropdown-menu">
+                    <p>Active:</p>
+                    <div class="form-group" *ngFor="let option of options">
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="expiryDate" 
+                                value="{{option.value}}" 
+                                class="real-radio" 
+                                formControlName="expiryDate"
+                            > 
+                            <span class="custom-radio"></span>
+                            {{option.title}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button (click)="createLink()" class="button">Create link</button>
+        </form>
+    </div>
+</div>
+<div class="modal-backdrop" (click)="close()"></div>

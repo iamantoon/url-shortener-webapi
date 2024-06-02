@@ -1,0 +1,15 @@
+<div class="container">
+    <p class="heading">Sign in to <strong>Shortly</strong></p>
+    <div class="content">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-container" autocomplete="off">
+            <label for="email">Email address:</label>
+            <input type="text" id="email" name="email" class="input" formControlName="email">
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" class="input" formControlName="password">
+            <input type="submit" value="Sign in" class="button main" [disabled]="loginForm.invalid">
+            <p class="text">Or use a third-party</p>
+            <button class="button github" (click)="loginWithGitHub()">Sign in with Github</button>
+            <asl-google-signin-button type='standard' size='large' width="325"></asl-google-signin-button>
+        </form> 
+    </div>
+</div>

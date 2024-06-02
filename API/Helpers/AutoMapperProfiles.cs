@@ -10,6 +10,7 @@ namespace API.Helpers
         {
             CreateMap<AppLink, LinkDto>();
             CreateMap<AppUser, UserToReturnDto>();
+            CreateMap<RegisterDto, AppUser>();
         }
     }
 }

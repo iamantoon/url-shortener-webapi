@@ -1,0 +1,42 @@
+.container {
+    text-align: center;
+    background: #f4f4f4;
+    padding: 20px;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+}
+  
+header {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.3em;
+    color: #0f1214;
+}
+
+header p {
+    color: #0f1214;
+    font-size: 1.2em;
+}
+  
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+  
+.feature {
+    max-width: 150px;
+}
+  
+.feature h2 {
+    color: #0f1214;
+    font-size: 1.2em;
+}
+
+.feature p {
+    color: #0f1214;
+}

@@ -1,0 +1,9 @@
+<section class="links">
+    <app-link *ngFor="let link of links" [link]="link.shortLink" [date]="link.expiryDate"></app-link>
+    <div class="create-link" (click)="openCreateLinkModal(modalTemplate)" *ngIf="isPersonal">
+        <div class="create-link-container">
+            <img src="assets/plus-thin.svg" width="145px" height="145px">
+        </div>
+    </div>
+</section>
+<ng-template #modalTemplate></ng-template>

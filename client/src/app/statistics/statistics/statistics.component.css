@@ -1,0 +1,58 @@
+.container {
+    margin: 0 auto;
+    padding: 5px 25px;
+    background-color: #f4f4f4;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 25px;
+}
+
+.chart-wrapper {
+    width: 500px;
+}
+
+.statistics-header {
+    margin: 15px 0 25px;
+}
+
+.statistics-heading {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Table */
+
+.invoices-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.invoices-table th, .invoices-table td {
+    padding: 12px 15px;
+    text-align: left;
+    text-align: center;
+}
+
+.invoices-table thead {
+    background-color: #f4f4f4;
+}
+
+.invoices-table thead th {
+    font-weight: 600;
+}
+
+.invoices-table tbody tr {
+    border-bottom: 1px solid #afb4bd;
+}
+
+.invoices-table thead tr {
+    border-bottom: 1px solid #afb4bd;
+}
+
+.link {
+    color: #0f1214;
+}

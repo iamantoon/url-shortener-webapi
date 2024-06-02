@@ -1,0 +1,184 @@
+.modal-backdrop {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.modal {
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 350px;
+
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 35px;
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+  
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+  
+.modal-content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+  
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-close {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Create link form */
+
+.dropdown {
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+.input-dropdown {
+    display: block;
+    position: relative;
+    width: 350px;
+    padding: 6px 8px;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    border: 1px solid #0f1214;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: #fff !important;
+}
+
+.dropdown-menu {
+    display: flex;
+    width: 328px;
+    flex-direction: column;
+    background-color: #fff !important;
+    border-radius: 6px;
+    z-index: 999;
+}
+
+.dropdown-item {
+    padding: 9px 8px;
+    cursor: pointer;
+    border-top: 1px solid #f4f4f4 !important;
+    font-size: 0.95rem;
+}
+
+.input {
+    display: block;
+    width: 310px;
+    padding: 6px 8px;
+    margin-bottom: 10px;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    border: 1px solid #0f1214;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff !important;
+}
+
+.button {
+    display: block;
+    width: 328px;
+    padding: 8px 14px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0f1214;
+    font-family: "Lato", sans-serif;
+    font-size: 0.95rem;
+    color: #fafafa !important;
+    transition: box-shadow 0.2s ease-in;
+    cursor: pointer;
+}
+
+.button:hover {
+    box-shadow: 0px 4px 12px 0px #5C687C29;
+}
+
+/* Radio buttons */
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-radio {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 35px;
+    border: 1px solid #0f1214;
+    margin-right: 3px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.custom-radio::before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: #0f1214;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.custom-radio:hover {
+    border: 2px solid #0f1214;
+}
+
+.custom-radio:active {
+    border: 2px solid #0f1214;
+}
+
+.real-radio {
+    width: 0;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.real-radio:checked + .custom-radio::before {
+    display: block;
+}
+
+label {
+    margin-top: 5px;
+    cursor: pointer;
+}

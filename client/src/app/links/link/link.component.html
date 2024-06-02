@@ -1,0 +1,18 @@
+<div class="link"> 
+    <div class="link-container">
+        <div class="icons">
+            <div class="icon" (click)="copyText(link)">
+                <img src="./../../../assets/copy-alt.svg">
+            </div>
+            <div class="icon">
+                <a href="{{link}}" target="_blank">
+                    <img src="./../../../assets/external-link-alt.svg">
+                </a>
+            </div>
+        </div>
+        <p class="link-link">
+            <a href="{{link}}" target="_blank" class="link-link">{{link}}</a>
+        </p>
+        <p class="date">Expires {{date | date}}</p>
+    </div>
+</div>

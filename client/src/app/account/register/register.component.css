@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 65px auto 0;
+}
+
+.heading {
+    text-align: center;
+    font-size: 19px;
+}
+.text {
+    margin: 15px 0 12px;
+}
+
+.content {
+    width: 325px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.content-container {
+    margin: 0 auto;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-family: "Lato", sans-serif;
+    font-size: 0.95rem;
+    color: #fafafa;
+    margin-bottom: 6px;
+}
+.main {
+    margin-top: 18px;
+    background-color: #0f1214;
+}
+.google {
+    background-color: #fff;
+    color: #0f1214;
+}
+.github {
+    background-color: #1f883d;
+    color: #fff;
+}
+
+.input {
+    display: block;
+    width: 95%;
+    padding: 6px 8px;
+    margin-bottom: 10px;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    border: 1px solid #0f1214;
+    border-radius: 5px;
+    outline: none;
+}
+
+.blue {
+    color: #4285f4;
+    font-weight: 600;
+}
+.red {
+    color: #ea4335;
+    font-weight: 600;
+}
+.yellow {
+    color: #fbbc05;
+    font-weight: 600;
+}
+.green {
+    color: #34a853;
+    font-weight: 600;
+}

@@ -1,0 +1,54 @@
+<div class="container" *ngIf="(linksService.personalLinks$ | async) as links">
+    <h4 class="count-links">{{links.pagination?.totalItems}} links found</h4>
+    <div class="filters-container">
+        <div class="filters-dropdown">
+            <div class="current-filter">
+                <div class="current-filter-container" [class.is-open]="isDropdownOpen" (click)="toggleDropdown()">
+                    <p class="active-filter-paragraph">{{ getDropdownLabel() }}</p>
+                    <img src="assets/closed.svg" alt="closed" class="closed-icon" [class.hidden]="isDropdownOpen">
+                    <img src="assets/open.svg" alt="open" class="open-icon" [class.hidden]="!isDropdownOpen">
+                </div>
+            </div>
+            <div class="dropdown-menu" *ngIf="isDropdownOpen">
+                <p (click)="setExpiryDate('8640')">All active links</p>
+                <p (click)="setExpiryDate('24')">Display links that will expire in 1 day</p>
+                <p (click)="setExpiryDate('168')">Display links that will expire in 1 week</p>
+                <p (click)="setExpiryDate('336')">Display links that will expire in 2 weeks</p>
+                <p (click)="setExpiryDate('720')">Display links that will expire in 1 month</p>
+            </div>
+        </div>
+        <div class="filters-buttons">
+            <button class="apply-filters" (click)="getPersonalLinks()">
+                Apply filters
+            </button>
+            <button class="reset-filters" (click)="resetFilters()">
+                Reset filters
+            </button>
+        </div>
+    </div>
+
+    <!-- <app-filters
+        [linkParams]="linkParams" 
+        (loadLinks)="loadPersonalLinks()" 
+        (resetFilters)="resetFilters()" 
+        [formControl]="$any(filterForm.controls['filterByExpiryDate'])"
+    ></app-filters> -->
+    
+    <app-links [links]="links.result" [isPersonal]="true"></app-links>
+    
+    <div class="d-flex justify-content-center">
+        <!-- <pagination 
+            [boundaryLinks]="true" 
+            [totalItems]="pagination.totalItems"  
+            [itemsPerPage]="pagination.itemsPerPage"
+            [maxSize]="10"
+            [(ngModel)]="pagination.currentPage"
+            (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" 
+            nextText="&rsaquo;" 
+            firstText="&laquo;" 
+            lastText="&raquo;"
+        >
+        </pagination> -->
+    </div>
+</div>

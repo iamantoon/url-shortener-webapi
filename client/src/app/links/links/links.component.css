@@ -1,0 +1,21 @@
+.links {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    padding: 10px 0;
+    gap: 25px;
+    text-align: center;
+}
+
+.create-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 260px;
+    height: 190px;
+    padding: 10px;
+    background-color: #fff !important;
+    border-radius: 12px;
+    cursor: pointer;
+}

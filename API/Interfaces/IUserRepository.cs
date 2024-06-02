@@ -1,4 +1,5 @@
 using API.Entities;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace API.Interfaces
 {
@@ -9,5 +10,6 @@ namespace API.Interfaces
         Task<IEnumerable<AppUser>> GetUsersAsync();
         Task<AppUser> GetUserByIdAsync(int id);
         Task<AppUser> GetUserByEmailAsync(string email);
+        Task<EntityEntry<AppUser>> CreateUserAsync(AppUser user);
     }
 }

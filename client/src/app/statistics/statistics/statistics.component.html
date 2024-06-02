@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="statistics-header">
+        <h3 class="statistics-heading">General statistics</h3>
+    </div>
+    <div class="charts-container">
+        <div class="chart-wrapper">
+            <canvas 
+                baseChart
+                type="pie"
+                [data]="pieChartData2"
+                [options]="pieChartOption"
+                width="540"
+                height="360"
+            ></canvas>
+        </div>
+        <div class="chart-wrapper">
+            <canvas 
+                baseChart
+                type="pie"
+                [data]="pieChartData"
+                [options]="pieChartOption"
+                width="540"
+                height="360"
+            ></canvas>
+        </div>
+    </div>
+    <div class="statistics-header">
+        <h3 class="statistics-heading">Your statistics</h3>
+        <table class="invoices-table">
+            <thead>
+                <tr>
+                    <th>Short Link</th>
+                    <th>Full Link</th>
+                    <th>Created</th>
+                    <th>Expired</th>
+                    <th>How many times was used</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="linksService.personalLinks$ | async as personalLinks">
+                <tr *ngFor="let link of personalLinks.result">
+                    <td><a href="{{link.shortLink}}" target="_blank" class="link">{{link.shortLink}}</a></td>
+                    <td><a href="{{link.link}}" target="_blank" class="link">{{link.link}}</a></td>
+                    <td>{{link.created | date}}</td>
+                    <td>{{link.expiryDate | date}}</td>
+                    <td>{{link.usageCount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

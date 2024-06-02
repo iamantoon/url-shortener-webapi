@@ -53,7 +53,7 @@ namespace API.Controllers
         }
 
         [Authorize]
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<ActionResult<LinkDto>> CreateLink(CreateLinkDto createLinkDto)
         {
             var currentUserEmail = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

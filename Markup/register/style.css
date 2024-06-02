@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body, html {
+    font-family: "Lato", sans-serif;
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65px;
+}
+
+.heading {
+    font-size: 19px;
+}
+
+.content {
+    width: 325px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.input {
+    display: block;
+    width: 95%;
+    padding: 6px 8px;
+    margin-bottom: 10px;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    border: 1px solid #0f1214;
+    border-radius: 5px;
+    outline: none;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-family: "Lato", sans-serif;
+    font-size: 0.95rem;
+    color: #fafafa;
+    margin-bottom: 6px;
+}
+
+.main {
+    margin-top: 18px;
+    background-color: #0f1214;
+}
+
+.facebook {
+    background-color: #0866ff;
+    color: #fff;
+}
+
+.google {
+    background-color: #fff;
+    color: #0f1214;
+}
+
+.blue {
+    color: #4285f4;
+    font-weight: 600;
+}
+.red {
+    color: #ea4335;
+    font-weight: 600;
+}
+.yellow {
+    color: #fbbc05;
+    font-weight: 600;
+}
+.green {
+    color: #34a853;
+    font-weight: 600;
+}

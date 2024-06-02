@@ -1,6 +1,7 @@
 using API.Entities;
 using API.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace API.Data
 {
@@ -10,6 +11,11 @@ namespace API.Data
         public UserRepository(DataContext context)
         {
             _context = context;
+        }
+
+        public async Task<EntityEntry<AppUser>> CreateUserAsync(AppUser user)
+        {
+            return await _context.Users.AddAsync(user);
         }
 
         public async Task<AppUser> GetUserByEmailAsync(string email)

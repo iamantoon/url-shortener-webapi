@@ -1,0 +1,17 @@
+<div class="container">
+    <p class="heading">Sign up to <strong>Shortly</strong></p>
+    <div class="content">
+        <form [formGroup]="registerForm" (ngSubmit)="register()" class="form-container" autocomplete="off">
+            <label for="email">Email address:</label>
+            <input type="text" id="email" name="email" class="input" formControlName="email">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="input" formControlName="password">
+            <label for="confirmPassword">Confirm password:</label>
+            <input type="password" id="confirmPassword" name="password" class="input" formControlName="confirmPassword">
+            <input type="submit" value="Sign up" class="button main" [disabled]="registerForm.invalid">
+            <p class="text">Or use a third-party</p>
+            <button class="button github" >Sign up with Github</button>
+            <asl-google-signin-button type='standard' size='large' width="325"></asl-google-signin-button>
+        </form> 
+    </div>
+</div>
