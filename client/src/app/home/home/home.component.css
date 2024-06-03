@@ -2,9 +2,6 @@
     text-align: center;
     background: #f4f4f4;
     padding: 20px;
-    /* border-radius: 8px; */
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    width: 100%;
 }
   
 header {
@@ -21,6 +18,8 @@ header p {
     color: #0f1214;
     font-size: 1.2em;
 }
+
+
   
 .features {
     display: flex;
@@ -40,3 +39,26 @@ header p {
 .feature p {
     color: #0f1214;
 }
+
+.how-it-works {
+    margin-top: 40px;
+  }
+  
+  .how-it-works h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #0f1214;
+  }
+  
+  .step {
+    margin-bottom: 20px;
+  }
+  
+  .step h3 {
+    color: #0f1214;
+    font-size: 1.5em;
+  }
+  
+  .step p {
+    color: #777;
+  }
