@@ -5,11 +5,13 @@ import { User, SignUser } from '../shared/interfaces/user';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'http://localhost:5000/api/account/';
+  baseUrl = environment.apiUrl + 'account/';
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 

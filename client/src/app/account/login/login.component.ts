@@ -5,6 +5,7 @@ import { SignUser } from 'src/app/shared/interfaces/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithGitHub(): void {
-    window.location.href = 'https://github.com/login/oauth/authorize?client_id=Ov23limjOqHasbcXYUtR&redirect_uri=http://localhost:5000/api/account/signin-github&scope=user:email';
+    window.location.href = `https://github.com/login/oauth/authorize?client_id=Ov23limjOqHasbcXYUtR&redirect_uri=${environment.apiUrl}account/signin-github&scope=user:email`;
   }
 
   handleGitHubCallback(): void {

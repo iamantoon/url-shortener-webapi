@@ -1,0 +1,73 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\assets\\closed.svg",
+      "PackagePath": "staticwebassets\\assets\\closed.svg"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\assets\\copy-alt.svg",
+      "PackagePath": "staticwebassets\\assets\\copy-alt.svg"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\assets\\external-link-alt.svg",
+      "PackagePath": "staticwebassets\\assets\\external-link-alt.svg"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\assets\\open.svg",
+      "PackagePath": "staticwebassets\\assets\\open.svg"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\assets\\plus-thin.svg",
+      "PackagePath": "staticwebassets\\assets\\plus-thin.svg"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\assets\\plus.svg",
+      "PackagePath": "staticwebassets\\assets\\plus.svg"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\main.96fa3efd38786930.js",
+      "PackagePath": "staticwebassets\\main.96fa3efd38786930.js"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\polyfills.c1bbed23f7787a63.js",
+      "PackagePath": "staticwebassets\\polyfills.c1bbed23f7787a63.js"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\runtime.016ad7340ffc7b80.js",
+      "PackagePath": "staticwebassets\\runtime.016ad7340ffc7b80.js"
+    },
+    {
+      "Id": "C:\\Practice\\API\\wwwroot\\styles.8ef4976a93b763bc.css",
+      "PackagePath": "staticwebassets\\styles.8ef4976a93b763bc.css"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.API.props",
+      "PackagePath": "build\\API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.API.props",
+      "PackagePath": "buildMultiTargeting\\API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.API.props",
+      "PackagePath": "buildTransitive\\API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

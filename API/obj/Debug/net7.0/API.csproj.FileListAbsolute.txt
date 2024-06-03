@@ -25,7 +25,6 @@ C:\Practice\api\obj\Debug\net7.0\staticwebassets.pack.json
 C:\Practice\api\obj\Debug\net7.0\staticwebassets.build.json
 C:\Practice\api\obj\Debug\net7.0\staticwebassets.development.json
 C:\Practice\api\obj\Debug\net7.0\scopedcss\bundle\API.styles.css
-C:\Practice\api\obj\Debug\net7.0\API.csproj.CopyComplete
 C:\Practice\api\obj\Debug\net7.0\API.dll
 C:\Practice\api\obj\Debug\net7.0\refint\API.dll
 C:\Practice\api\obj\Debug\net7.0\API.pdb
@@ -91,3 +90,8 @@ C:\Practice\API\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Practice\API\bin\Debug\net7.0\System.Management.dll
 C:\Practice\API\bin\Debug\net7.0\System.Security.Permissions.dll
 C:\Practice\API\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Practice\API\obj\Debug\net7.0\API.sourcelink.json
+C:\Practice\API\obj\Debug\net7.0\API.csproj.Up2Date
+C:\Practice\API\bin\Debug\net7.0\API.staticwebassets.runtime.json
+C:\Practice\API\bin\Debug\net7.0\Npgsql.dll
+C:\Practice\API\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

@@ -57,7 +57,7 @@ namespace API.Controllers
         public async Task<ActionResult<LinkDto>> CreateLink(CreateLinkDto createLinkDto)
         {
             var currentUserEmail = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                
+    
             if (currentUserEmail == null)
             {
                 return BadRequest("Unable to retrieve current user");
@@ -66,13 +66,17 @@ namespace API.Controllers
             var currentUser = await _userRepository.GetUserByEmailAsync(currentUserEmail);
 
             string shortCode = GenerateShortCode(createLinkDto.Link);
-            var shortLink = "http://localhost:5000/api/links/s/" + shortCode;
+
+            string shortLinkBaseUrl = _config["ShortLinkBaseUrl"];
+            string shortLink = $"{shortLinkBaseUrl}{shortCode}";
+    
+            var expiryDateUtc = DateTime.UtcNow.AddHours(createLinkDto.HowManyHoursAccessible);
 
             var link = new AppLink
             {
                 ShortLink = shortLink,
                 Link = createLinkDto.Link,
-                ExpiryDate = Convert.ToDateTime(DateTime.Now.AddHours(createLinkDto.HowManyHoursAccessible)),
+                ExpiryDate = expiryDateUtc,
                 UserId = currentUser.Id,
                 AppUser = currentUser,
                 Active = true,
@@ -87,7 +91,7 @@ namespace API.Controllers
                 ShortLink = link.ShortLink,
                 Link = link.Link,
                 Created = link.Created,
-                ExpiryDate = DateTime.Now.AddHours(createLinkDto.HowManyHoursAccessible),
+                ExpiryDate = expiryDateUtc,
                 Active = true,
                 UsageCount = link.UsageCount
             };
@@ -97,7 +101,8 @@ namespace API.Controllers
         [Route("s/{shortCode}")]
         public async Task<ActionResult> RedirectUrl(string shortCode)
         {
-            string shortLink = "http://localhost:5000/api/links/s/" + shortCode;
+            string shortLinkBaseUrl = _config["ShortLinkBaseUrl"];
+            string shortLink = $"{shortLinkBaseUrl}{shortCode}";
 
             var url = await _linkRepository.GetLinkByShortCodeAsync(shortLink);
             

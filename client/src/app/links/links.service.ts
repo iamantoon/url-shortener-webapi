@@ -2,12 +2,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Link, LinkParams, PaginatedResult } from './models/links';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LinksService {
-  baseUrl = 'http://localhost:5000/api/links/';
+  baseUrl = environment.apiUrl + 'links';
+  
   linksSubject: BehaviorSubject<PaginatedResult<Link[]>> = new BehaviorSubject<PaginatedResult<Link[]>>([] as PaginatedResult<Link[]>);
   links$: Observable<PaginatedResult<Link[]>> = this.linksSubject.asObservable(); 
   personalLinksSubject: BehaviorSubject<PaginatedResult<Link[]>> = new BehaviorSubject<PaginatedResult<Link[]>>([] as PaginatedResult<Link[]>);
@@ -38,7 +40,7 @@ export class LinksService {
     params = params.append('maxExpiryDate', linkParams.maxExpiryDate);
     params = params.append('orderBy', linkParams.orderBy);
 
-    return this.getPaginatedResult<Link[]>(this.baseUrl + 'my', params).pipe(
+    return this.getPaginatedResult<Link[]>(this.baseUrl + '/my', params).pipe(
       map(response => {
         this.personalLinksSubject.next(response);
         return response;
@@ -73,7 +75,7 @@ export class LinksService {
   }
 
   getLink(id: number){
-    return this.http.get<Link>(this.baseUrl + id);
+    return this.http.get<Link>(this.baseUrl + "/" + id);
   }
 
   createLink(link: string, howManyHoursAccessible: number){
